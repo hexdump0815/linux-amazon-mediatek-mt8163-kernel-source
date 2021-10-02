@@ -2219,6 +2219,7 @@ static inline int adopt_CAMERA_HW_FeatureControl(void *pBuf)
 			pCrop = kmalloc(sizeof(struct SENSOR_WINSIZE_INFO_STRUCT), GFP_KERNEL);
 			if (pCrop == NULL) {
 				PK_ERR(" ioctl allocate mem failed\n");
+				kfree(pFeaturePara);
 				return -ENOMEM;
 			}
 			memset(pCrop, 0x0, sizeof(struct SENSOR_WINSIZE_INFO_STRUCT));

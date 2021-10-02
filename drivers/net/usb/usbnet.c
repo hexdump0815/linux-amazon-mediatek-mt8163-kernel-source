@@ -66,6 +66,9 @@
 #define	RX_QLEN(dev)		((dev)->rx_qlen)
 #define	TX_QLEN(dev)		((dev)->tx_qlen)
 
+#ifdef CONFIG_POGO_PIN_DOCK
+#define	MAX_RX_LENGTH	1500
+#endif
 // reawaken network queue this soon after stopping; else watchdog barks
 #define TX_TIMEOUT_JIFFIES	(5*HZ)
 
@@ -584,7 +587,10 @@ static void rx_complete (struct urb *urb)
 	struct usbnet		*dev = entry->dev;
 	int			urb_status = urb->status;
 	enum skb_state		state;
-
+#ifdef CONFIG_POGO_PIN_DOCK
+	if (urb->actual_length > MAX_RX_LENGTH)
+		return;
+#endif
 	skb_put (skb, urb->actual_length);
 	state = rx_done;
 	entry->urb = NULL;
