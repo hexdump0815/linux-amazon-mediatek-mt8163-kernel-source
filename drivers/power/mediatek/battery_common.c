@@ -81,7 +81,7 @@
 #include <mt-plat/internal_charging.h>
 #endif
 
-#if defined(CONFIG_AMAZON_METRICS_LOG)
+// #if defined(CONFIG_AMAZON_METRICS_LOG)
 
 #if defined(CONFIG_EARLYSUSPEND)
 #include <linux/earlysuspend.h>
@@ -183,7 +183,7 @@ struct battery_data {
 static struct battery_data battery_main;
 
 struct battery_info BQ_info;
-#endif /* CONFIG_AMAZON_METRICS_LOG */
+// #endif /* CONFIG_AMAZON_METRICS_LOG */
 
 
 /* ///////////////////////////////////////////////////////////////////////////////////////// */
