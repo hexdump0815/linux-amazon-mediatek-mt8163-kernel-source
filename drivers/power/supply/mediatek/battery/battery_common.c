@@ -2398,9 +2398,14 @@ static void battery_update(struct battery_data *bat_data)
 		battery_meter_reset();
 	} else {
 		if (BMT_status.bat_full) {
-			BMT_status.UI_SOC = 100;
-			pr_info("%s: Force to set UI_SOC[%d, %d] to 100\n",
-				__func__, BMT_status.UI_SOC, BMT_status.SOC);
+#ifdef CONFIG_POGO_PIN_DOCK
+			if(!mt_usb1_is_dock_with_power())
+#endif
+			{
+				BMT_status.UI_SOC = 100;
+				pr_debug("[recharging] UI_SOC=%d, SOC=%d\n",
+				    BMT_status.UI_SOC, BMT_status.SOC);
+			}
 		} else {
 			mt_battery_Sync_UI_Percentage_to_Real();
 		}

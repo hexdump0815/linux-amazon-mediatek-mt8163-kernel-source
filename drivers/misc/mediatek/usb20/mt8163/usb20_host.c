@@ -611,7 +611,6 @@ void musb_rerun_dock_detection(void)
 #endif
 
 #ifdef CONFIG_POGO_PIN_DOCK
-extern void musbfsh_force_enable(bool enable);
 void musb_run_dock_detection(void)
 {
 	int dock_det_state, otg_read_state;
@@ -638,7 +637,6 @@ void musb_run_dock_detection(void)
 			pinctrl_select_state(pinctrl, pinctrl_usb_switch_en_low);
 			mtk_musb->dock_state = DOCK_NOT_PRESENT;
 			musb_set_dock_present(mtk_musb, false);
-			musbfsh_force_enable(false);
 			pr_warn("[Dock]%s %d, dock new = %d\n",
 				__func__, __LINE__, mtk_musb->dock_state);
 		}
@@ -685,7 +683,6 @@ void musb_run_dock_detection(void)
 					__func__, __LINE__, mtk_musb->dock_state);
 			}
 		}
-		musbfsh_force_enable(true);
 	}
 
 	mutex_unlock(&dock_detection_mutex);
