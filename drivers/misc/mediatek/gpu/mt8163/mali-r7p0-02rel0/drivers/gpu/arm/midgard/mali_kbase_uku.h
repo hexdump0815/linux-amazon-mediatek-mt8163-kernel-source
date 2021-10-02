@@ -42,7 +42,7 @@
 #include "mali_kbase_gpuprops_types.h"
 
 #define BASE_UK_VERSION_MAJOR 10
-#define BASE_UK_VERSION_MINOR 0
+#define BASE_UK_VERSION_MINOR 6
 
 struct kbase_uk_mem_alloc {
 	union uk_header header;
