@@ -1682,7 +1682,7 @@ kuid_t sock_i_uid(struct sock *sk)
 
 	/*mtk_net: fix kernel bug*/
 	if (!sk) {
-		pr_info("sk == NULL for sock_i_uid\n");
+//		pr_info("sk == NULL for sock_i_uid\n");
 		return GLOBAL_ROOT_UID;
 	}
 
