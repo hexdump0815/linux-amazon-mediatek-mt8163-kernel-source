@@ -2409,7 +2409,7 @@ static void mt_battery_charger_detect_check(void)
 			bat_charger_enable_power_path(true);
 		}
 
-		battery_log(BAT_LOG_FULL, "[BAT_thread]Cable out \r\n");
+//		battery_log(BAT_LOG_FULL, "[BAT_thread]Cable out \r\n");
 		mt_usb_disconnect();
 	}
 }

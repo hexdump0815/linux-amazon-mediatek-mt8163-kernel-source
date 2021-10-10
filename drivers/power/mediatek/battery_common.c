@@ -2726,7 +2726,7 @@ static void battery_update(struct battery_data *bat_data)
 	} else {		/* Only Battery */
 
 		bat_data->BAT_STATUS = POWER_SUPPLY_STATUS_DISCHARGING;
-		pr_notice("battery status: %s\n", "not charging");
+//		pr_notice("battery status: %s\n", "not charging");
 		if (BMT_status.bat_vol <= batt_cust_data.v_0percent_tracking)
 			resetBatteryMeter = mt_battery_0Percent_tracking_check();
 		else
@@ -3269,11 +3269,11 @@ void mt_battery_GetBatteryData(void)
 	if (g_battery_soc_ready == false)
 		g_battery_soc_ready = true;
 
-	pr_notice(
-		    "AvgVbat=(%d),bat_vol=(%d),AvgI=(%d),I=(%d),VChr=(%d),AvgT=(%d),T=(%d),pre_SOC=(%d),SOC=(%d),ZCV=(%d)\n",
-		    BMT_status.bat_vol, bat_vol, BMT_status.ICharging, ICharging,
-		    BMT_status.charger_vol, BMT_status.temperature, temperature,
-		    previous_SOC, BMT_status.SOC, BMT_status.ZCV);
+//	pr_notice(
+//		    "AvgVbat=(%d),bat_vol=(%d),AvgI=(%d),I=(%d),VChr=(%d),AvgT=(%d),T=(%d),pre_SOC=(%d),SOC=(%d),ZCV=(%d)\n",
+//		    BMT_status.bat_vol, bat_vol, BMT_status.ICharging, ICharging,
+//		    BMT_status.charger_vol, BMT_status.temperature, temperature,
+//		    previous_SOC, BMT_status.SOC, BMT_status.ZCV);
 }
 
 static PMU_STATUS mt_battery_CheckBatteryTemp(void)
@@ -3934,7 +3934,7 @@ static void mt_battery_charger_detect_check(void)
 		BMT_status.POSTFULL_charging_time = 0;
 		chr_type_debounce = false;
 
-		pr_notice("[BAT_thread]Cable out \r\n");
+//		pr_notice("[BAT_thread]Cable out \r\n");
 
 		mt_usb_disconnect();
 	}

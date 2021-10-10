@@ -2163,8 +2163,8 @@ s32 battery_meter_trans_battery_percentage(s32 d_val)
 	if (d_val > 100)
 		d_val = 100;
 
-	bm_print(BM_LOG_CRTI, "[battery_meter_trans_battery_percentage] %d,%d,%d,%d,%d,%d\r\n",
-		 temp_val, C_0mA, C_600mA, d_val_before, d_val, g_currentfactor);
+//	bm_print(BM_LOG_CRTI, "[battery_meter_trans_battery_percentage] %d,%d,%d,%d,%d,%d\r\n",
+//		 temp_val, C_0mA, C_600mA, d_val_before, d_val, g_currentfactor);
 
 	return d_val;
 }

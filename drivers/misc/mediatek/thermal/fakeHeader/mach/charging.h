@@ -12,12 +12,13 @@
 #define BAT_LOG_CRTI 1
 #define BAT_LOG_FULL 2
 
-#define battery_xlog_printk(num, fmt, args...) \
-do { \
-	if (Enable_BATDRV_LOG >= (int)num) { \
-		pr_notice(fmt, ##args); \
-	} \
-} while (0)
+//#define battery_xlog_printk(num, fmt, args...) \
+//do { \
+//	if (Enable_BATDRV_LOG >= (int)num) { \
+//		pr_notice(fmt, ##args); \
+//	} \
+//} while (0)
+#define battery_xlog_printk(num, fmt, args...) do {} while (0)
 
 #define battery_log(num, fmt, args...) \
 do { \
